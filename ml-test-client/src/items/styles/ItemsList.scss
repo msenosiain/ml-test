@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables';
+
+.categories-breadcrumb {
+  margin: 16px 0;
+
+}
+
+.items {
+  padding: 0 16px;
+  background-color: white;
+  border-radius: 4px;
+  .item-link {
+    text-decoration: none;
+    color: $dark_grey;
+  }
+}

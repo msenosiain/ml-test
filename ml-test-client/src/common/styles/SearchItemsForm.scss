@@ -1,0 +1,24 @@
+@import '../assets/styles/variables';
+
+.navbar-default {
+  background-color: $yellow;
+  border: none;
+  .navbar-brand {
+    text-align: center;
+  }
+  .navbar-form {
+    .input-group {
+      width: 100%;
+      .form-control {
+        border: none;
+        &:focus {
+          border: none;
+          box-shadow: none;
+        }
+      }
+      .btn-search {
+        background-color: $light_grey;
+      }
+    }
+  }
+}
