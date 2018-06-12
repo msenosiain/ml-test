@@ -1,17 +1,17 @@
-#API:
-##Build:
+# API:
+## Build:
 
 `cd ml-test-api && npm install`
 
-##Run:
+## Run:
 
 `npm start` 
 
-#Client
-##Build
+# Client
+## Build
 
 `cd ml-test-client && npm install`
 
-##Run:
+## Run:
 
 `npm start`
