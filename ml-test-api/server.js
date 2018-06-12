@@ -1,9 +1,19 @@
-var express = require('express'),
-    app = express(),
-    port = process.env.PORT || 3000;
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const app = express();
+const port = process.env.PORT || 3080;
 
-var itemRoutes = require('./api/items/routes');
-itemRoutes(app);
+app.use(cors());
+app.use(morgan('dev'));
+
+app.get('/', function (req, res) {
+    res.send('Welcome to te Dark Side!!')
+});
+
+const api = require('./api/api.routes')();
+
+app.use('/api', api);
 
 app.listen(port);
 

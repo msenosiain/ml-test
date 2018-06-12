@@ -1,12 +1,13 @@
 @import '../../assets/styles/variables';
 
 .categories-breadcrumb {
+  height: 20px;
   margin: 16px 0;
-
 }
 
 .items {
-  padding: 0 16px;
+  margin-bottom: 64px;
+  padding: 0 16px 16px;
   background-color: white;
   border-radius: 4px;
   .item-link {

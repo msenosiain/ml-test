@@ -1,0 +1,56 @@
+@import '../../assets/styles/variables';
+
+.item-detail-wrapper {
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: white;
+  .item-picture {
+    display: inline-block;
+    width: 680px;
+    margin-left: 16px;
+    img {
+      width: 100%;
+    }
+  }
+  .item-content {
+    display: inline-block;
+    width: 33%;
+    padding-left: 32px;
+    vertical-align: top;
+    .item-meta {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .item-title {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+    .item-price {
+      font-size: 46px;
+      line-height: 44px;
+      margin-bottom: 32px;
+    }
+    .btn-buy {
+      background-color: $blue;
+      color: white;
+    }
+  }
+}
+
+.item-description-wrapper {
+  width: 100%;
+  margin-bottom: 64px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  background-color: white;
+  text-align: justify;
+  .item-description-label {
+    font-size: 28px;
+  }
+  .item-description {
+    font-size: 16px;
+  }
+
+}

@@ -1,27 +1,20 @@
-// This component handles the App template used on every page.
-import React, {PropTypes} from 'react';
-import SearchItemsForm from './items/SearchItemsForm';
-// import {connect} from 'react-redux';
+import React from 'react';
+import {Switch, Route} from 'react-router-dom';
+import './App.css';
+import HomePage from "./home/components/HomePage";
+import ItemsPage from "./items/components/ItemsPage";
+import ItemPage from "./items/components/ItemPage";
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="container-fluid">
-                <SearchItemsForm />
-                {this.props.children}
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div className="container-fluid">
+        <main className="main">
+            <Switch>
+                <Route exact path='/' component={HomePage}/>
+                <Route exact path='/items' render={props => (<ItemsPage {...props} />)}/>
+                <Route strict exact path='/items/:id' render={props => (<ItemPage {...props} />)}/>
+            </Switch>
+        </main>
+    </div>
+);
 
-App.propTypes = {
-    // children: PropTypes.object.isRequired,
-    // loading: PropTypes.bool.isRequired
-};
-
-// function mapStateToProps(state, ownProps) {
-//     return {loading: state.ajaxCallsInProgress > 0};
-// }
-
-// export default connect(mapStateToProps)(App);
 export default App;

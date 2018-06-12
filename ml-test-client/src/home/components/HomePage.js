@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchItemsForm from "../items/SearchItemsForm";
+import SearchItemsForm from "../../common/components/SearchItemsForm";
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -14,11 +14,7 @@ class HomePage extends React.Component {
     }
 
     updateQueryState(event) {
-        let query = (' ' + this.state.query).slice(1);
-
-        query = event.target.value;
-
-        return this.setState({query: query});
+        return this.setState({query: event.target.value});
     }
 
     searchItems(event) {
@@ -30,14 +26,10 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>
-
-                <SearchItemsForm
-                    query={this.state.query}
-                    onChange={this.updateQueryState}
-                    onSearch={this.searchItems}/>
-                <h1>{'Home'}</h1>
-            </div>
+            <SearchItemsForm
+                query={this.state.query}
+                onChange={this.updateQueryState}
+                onSearch={this.searchItems}/>
         );
     }
 }

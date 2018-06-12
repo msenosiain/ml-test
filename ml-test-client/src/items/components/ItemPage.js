@@ -1,6 +1,7 @@
 import React from 'react';
-import SearchItemsForm from "../../common/components/SearchItemsForm";
 import ItemsApi from "../api/ItemsApi";
+import SearchItemsForm from "../../common/components/SearchItemsForm";
+import ItemDetail from './ItemDetail';
 
 class ItemPage extends React.Component {
     constructor(props, context) {
@@ -8,7 +9,7 @@ class ItemPage extends React.Component {
         this.state = {
             query: '',
             itemId: props.match.params.id,
-            item: {}
+            item: null
         };
 
         this.updateQueryState = this.updateQueryState.bind(this);
@@ -17,18 +18,14 @@ class ItemPage extends React.Component {
 
     componentDidMount() {
         ItemsApi.fetchItem(this.state.itemId).then(response => {
-            return this.setState({item: response.data})
+            return this.setState({item: response.data.item})
         }).catch(error => {
             throw(error);
         });
     }
 
     updateQueryState(event) {
-        let query = (' ' + this.state.query).slice(1);
-
-        query = event.target.value;
-
-        return this.setState({query: query});
+        return this.setState({query: event.target.value});
     }
 
     searchItems(event) {
@@ -41,13 +38,16 @@ class ItemPage extends React.Component {
     }
 
     render() {
+        const {query, item} = this.state;
         return (
             <div>
                 <SearchItemsForm
-                    query={this.state.query}
+                    query={query}
                     onChange={this.updateQueryState}
-                    onSearch={this.searchItems}/>
-                <h1>Item Page</h1>
+                    onSearch={this.searchItems}
+                />
+                {!item && <span>Cargando...</span>}
+                {item && <ItemDetail item={item}/>}
             </div>
         );
     }

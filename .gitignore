@@ -1,8 +1,9 @@
 
-# IntelliJ project files
-.idea
-*.iml
+# WebWtorm project files
+/**/.idea
 
 # Dependency directories
-node_modules/
+/**/node_modules/
+
+/ml-test-client/src/**/*.css
 

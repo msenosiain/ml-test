@@ -66,12 +66,11 @@ function _explodePrice(price, currency) {
 }
 
 function _processAllItemsResponse(ml_response) {
-
-    const categoryFilter = _.find(ml_response.available_filters, {'id': 'category'});
     let response = {author: author, categories: [], items: []};
+    const categoryFilter = _.find(ml_response.filters, {'id': 'category'});
 
     if (categoryFilter) {
-        response.categories = categoryFilter.values.map(function (category) {
+        response.categories = categoryFilter.values[0].path_from_root.map(function (category) {
             return category.name;
         });
     }

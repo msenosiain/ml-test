@@ -5,10 +5,13 @@
 
 ##Run:
 
-`ml-test-api/npm start` 
+`npm start` 
 
 #Client
-
 ##Build
 
-`cd ml-test-client && npm install && `
+`cd ml-test-client && npm install`
+
+##Run:
+
+`npm start`

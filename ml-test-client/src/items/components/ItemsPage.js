@@ -3,16 +3,14 @@ import qs from 'query-string';
 import SearchItemsForm from "../../common/components/SearchItemsForm";
 import ItemsList from './ItemsList';
 import ItemsApi from "../api/ItemsApi";
-import {searchItemsSuccess} from "./itemsActions";
 
 class ItemsPage extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             query: props.location.search ? qs.parse(props.location.search).search : '',
-            searchResults: {categories: [], items: []}
+            searchResults: null
         };
-
         this.updateQueryState = this.updateQueryState.bind(this);
         this.searchItems = this.searchItems.bind(this);
     }
@@ -26,11 +24,7 @@ class ItemsPage extends React.Component {
     }
 
     updateQueryState(event) {
-        let query = (' ' + this.state.query).slice(1);
-
-        query = event.target.value;
-
-        return this.setState({query: query});
+        return this.setState({query: event.target.value});
     }
 
     searchItems(event) {
@@ -53,9 +47,10 @@ class ItemsPage extends React.Component {
                 <SearchItemsForm
                     query={this.state.query}
                     onChange={this.updateQueryState}
-                    onSearch={this.searchItems}/>
-                <h1>ITEMS PAGE</h1>
-                <ItemsList {...this.state} />
+                    onSearch={this.searchItems}
+                />
+                {!this.state.searchResults && <span>Cargando...</span>}
+                {this.state.searchResults && <ItemsList {...this.state} />}
             </div>
         );
     }

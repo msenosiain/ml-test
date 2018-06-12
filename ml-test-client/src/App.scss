@@ -1,4 +1,8 @@
+@import '../src/assets/styles/_variables';
 
-main.main{
+body{
+  background-color: $light_grey;
+}
+.main{
   margin-top: 62px;
 }
